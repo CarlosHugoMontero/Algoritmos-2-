@@ -1,0 +1,127 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+
+int suma(int n)
+{
+	if (n==0)
+		return 0;
+	else
+	{
+		int x=suma(n-1);
+		return x+n;
+	}
+}
+int suma_pares ( int n)
+{
+	if (n==0)
+		return 0;
+	else 
+	{
+		int x=suma_pares(n-1);
+			if (n%2==0)
+				return x+n;
+			else
+				return x;
+	}
+}
+int factorial (int n)
+{
+	if (n==0)
+		return 1;
+	else
+	{
+		int x=factorial(n-1);
+		return x*n;
+	}
+}
+int contar_pares ( int n)
+{
+	if (n==0)
+		return 0;
+	else
+	{
+		int x=contar_pares(n-1);
+		if ( n%2==0)
+			return x+1;
+		else
+			return x;
+	}
+}
+int suma_de_cuadrados ( int n)
+{
+	if (n==0)
+		return 0;
+	else
+	{
+		int x=suma_de_cuadrados(n-1);
+		return x+(n*n);
+	}
+}
+
+
+
+void main ()
+{
+	int sum=0,n,op;
+	do{
+	cout<<"------------MENU-------------"<<endl;
+	cout<<"1.SUMA"<<endl;
+	cout<<"2.SUMA DE PARES"<<endl;
+	cout<<"3.FACTORIAL"<<endl;
+	cout<<"4.CONTAR LOS PARES"<<endl;
+	cout<<"5.SUMA DE CUADRDOS"<<endl;
+	cout<<"Eliga su opcion"<<endl;
+	cin>>op;
+	} while (op<1);
+	switch(op)
+	{
+	case 1:
+		{
+			cout<<"Ingrese hasta que numero desea saber: ";
+			cin>>n;
+			sum=suma(n);
+			cout<<"La suma sera: "<<sum;
+			break;
+		}
+	case 2:
+		{
+			cout<<"Ingrese hasta que numero desea saber: ";
+			cin>>n;
+			sum=suma_pares(n);
+			cout<<"La suma de pares sera: "<<sum;
+			break;
+		}
+	case 3:
+		{
+			cout<<"Ingrese de que numero quiere saber su factorial: ";
+			cin>>n;
+			sum=factorial(n);
+			cout<<"El factorial sera: "<<sum;
+			break;
+		}
+	case 4:
+		{
+			cout<<"Ingrese hasta que numero desea contar sus pares: ";
+			cin>>n;
+			sum=contar_pares(n);
+			cout<<"La cantidad de pares sera: "<<sum;
+			break;
+		}
+	case 5:
+		{
+			cout<<"Ingrese hasta que numero desea saber la suma de sus cuadrados: ";
+			cin>>n;
+			sum=suma_de_cuadrados(n);
+			cout<<"La suma sera: "<<sum;
+			break;
+		}
+	default: cout<<"OPCION INVALIDA";
+	}
+	getch();
+
+}
